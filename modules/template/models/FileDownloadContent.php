@@ -2,12 +2,12 @@
 
 namespace humhub\modules\custom_pages\modules\template\models;
 
-use Yii;
-use yii\helpers\Url;
-use yii\helpers\Html;
 use humhub\modules\custom_pages\modules\template\widgets\TemplateContentFormFields;
-use humhub\modules\file\models\File;
 use humhub\modules\file\libs\FileHelper;
+use humhub\modules\file\models\File;
+use Yii;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * @var $title string
@@ -19,7 +19,7 @@ use humhub\modules\file\libs\FileHelper;
 class FileDownloadContent extends TemplateContentActiveRecord
 {
     public static $label = 'File Download';
-    
+
     public $file;
 
     /**
@@ -29,7 +29,7 @@ class FileDownloadContent extends TemplateContentActiveRecord
     {
         return 'custom_pages_template_file_download_content';
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -43,7 +43,7 @@ class FileDownloadContent extends TemplateContentActiveRecord
             $this->showIcon = 1;
         }
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -55,7 +55,7 @@ class FileDownloadContent extends TemplateContentActiveRecord
         $result[] = [['showFileinfo', 'showIcon'], 'integer'];
         return $result;
     }
-       
+
     /**
      * @inheritdoc
      */
@@ -67,7 +67,7 @@ class FileDownloadContent extends TemplateContentActiveRecord
         array_push($scenarios[self::SCENARIO_EDIT], 'file_guid', 'title', 'style', 'cssClass', 'showFileinfo', 'showIcon');
         return $scenarios;
     }
-    
+
     /**
      * @return array customized attribute labels (name=>label)
      */
@@ -82,7 +82,7 @@ class FileDownloadContent extends TemplateContentActiveRecord
             'showIcon' => Yii::t('CustomPagesModule.base', 'Add a file icon before the title')
         ];
     }
-    
+
     public function saveFiles()
     {
         $files = File::findByRecord($this);
@@ -92,31 +92,31 @@ class FileDownloadContent extends TemplateContentActiveRecord
                 $file->delete();
             }
         }
-        
+
         $this->fileManager->attach($this->file_guid);
     }
-    
+
     public function getLabel()
     {
         return static::$label;
     }
-    
+
     public function getFile()
     {
         return File::findOne(['guid' => $this->file_guid]);
     }
-    
+
     public function hasFile()
     {
         return $this->file_guid != null && $this->getFile() != null;
     }
-    
+
     public function getUrl()
     {
         $file = $this->getFile();
         return ($file != null) ? $file->getUrl() : null;
     }
-    
+
     public function getDownloadUrl()
     {
         $file = $this->getFile();
@@ -124,7 +124,7 @@ class FileDownloadContent extends TemplateContentActiveRecord
             return Url::to(['/file/file/download', 'guid' => $file->guid]);
         }
     }
-    
+
     public function copy() {
         $clone = $this->createCopy();
         $clone->file_guid = $this->file_guid;
@@ -137,7 +137,7 @@ class FileDownloadContent extends TemplateContentActiveRecord
     }
 
     public function render($options = [])
-    {   
+    {
         if($this->hasFile()) {
             $file =  $this->getFile();
             $options['htmlOptions'] = [
@@ -147,20 +147,20 @@ class FileDownloadContent extends TemplateContentActiveRecord
                 'target' => '_blank',
                 'data-pjax-prevent' => '1'
             ];
-            
+
             $content = ($this->title) ? $this->title : $file->file_name;
             $content = Html::encode($content);
-            
+
             $fileInfo = FileHelper::getFileInfos($file);
-            
+
             if($this->showIcon) {
                 $options['htmlOptions']['class'] .= ' mime '.$fileInfo['mimeIcon'];
             }
-            
+
             if($this->showFileinfo) {
                 $content .= Html::tag('small', ' - '.$fileInfo['size_format'], ['class' => 'file-fileInfo']);
             }
-            
+
             if($this->isEditMode($options)) {
                 return $this->wrap('a', $content, $options);
             } else {
@@ -169,7 +169,7 @@ class FileDownloadContent extends TemplateContentActiveRecord
         }
         return '';
     }
-    
+
     public function renderEmpty($options = [])
     {
         return '';

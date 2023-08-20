@@ -13,7 +13,7 @@ use yii\base\ActionFilter;
 
 /**
  * Manages the access to certain controllers, which are only allowed for admin users (system-admin or space-admin).
- * 
+ *
  * @author buddha
  */
 class TemplateAccessFilter extends ActionFilter
@@ -27,14 +27,14 @@ class TemplateAccessFilter extends ActionFilter
         // If a sguid is present, we only grand access to space admins, otherwise we expect an system admin user.
         if($sguid) {
             $space = \humhub\modules\space\models\Space::findOne(['guid' => $sguid]);
-            
+
             if(!$space->isAdmin()) {
                  throw new \yii\web\HttpException(403, Yii::t('CustomPagesModule.controllers_TemplateController', 'Access denied!'));
             }
         } else if(Yii::$app->user->isGuest || !Yii::$app->user->getIdentity()->isSystemAdmin()) {
             throw new \yii\web\HttpException(403, Yii::t('CustomPagesModule.controllers_TemplateController', 'Access denied!'));
         }
-        
+
         return parent::beforeAction($action);
     }
 }

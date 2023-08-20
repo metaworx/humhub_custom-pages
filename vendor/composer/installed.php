@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'humhub/custom_pages',
-        'pretty_version' => 'v1.8.9',
-        'version' => '1.8.9.0',
-        'reference' => '5c4171b87947f4a6482069323b272721df05d407',
+        'pretty_version' => 'v1.9.3',
+        'version' => '1.9.3.0',
+        'reference' => 'b9380745f3f4e62025371ff8b05e95a68e31bfd9',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'humhub/custom_pages' => array(
-            'pretty_version' => 'v1.8.9',
-            'version' => '1.8.9.0',
-            'reference' => '5c4171b87947f4a6482069323b272721df05d407',
+            'pretty_version' => 'v1.9.3',
+            'version' => '1.9.3.0',
+            'reference' => 'b9380745f3f4e62025371ff8b05e95a68e31bfd9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -31,7 +31,7 @@
         'tinymce/tinymce' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'bec6271ca90b2f37db48a955697746c1f58b9358',
+            'reference' => '6a37da4822eebcd2706793454b07bd891c5277a8',
             'type' => 'component',
             'install_path' => __DIR__ . '/../tinymce/tinymce',
             'aliases' => array(

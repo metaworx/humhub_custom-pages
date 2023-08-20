@@ -74,15 +74,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tinymce/tinymce-dist.git",
-                "reference": "bec6271ca90b2f37db48a955697746c1f58b9358"
+                "reference": "6a37da4822eebcd2706793454b07bd891c5277a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/bec6271ca90b2f37db48a955697746c1f58b9358",
-                "reference": "bec6271ca90b2f37db48a955697746c1f58b9358",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/6a37da4822eebcd2706793454b07bd891c5277a8",
+                "reference": "6a37da4822eebcd2706793454b07bd891c5277a8",
                 "shasum": ""
             },
-            "time": "2022-12-06T02:19:08+00:00",
+            "time": "2023-04-26T10:48:15+00:00",
             "default-branch": true,
             "type": "component",
             "extra": {
@@ -126,7 +126,7 @@
                 "wysiwyg"
             ],
             "support": {
-                "source": "https://github.com/tinymce/tinymce-dist/tree/6.3.1"
+                "source": "https://github.com/tinymce/tinymce-dist/tree/6.4.2"
             },
             "install-path": "../tinymce/tinymce"
         }

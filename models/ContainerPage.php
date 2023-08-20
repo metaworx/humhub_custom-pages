@@ -2,12 +2,12 @@
 
 namespace humhub\modules\custom_pages\models;
 
-use humhub\modules\space\models\Space;
-use Yii;
 use humhub\modules\custom_pages\helpers\Url;
 use humhub\modules\custom_pages\models\forms\SettingsForm;
-use humhub\modules\search\interfaces\Searchable;
 use humhub\modules\custom_pages\modules\template\models\Template;
+use humhub\modules\space\models\Space;
+use humhub\modules\search\interfaces\Searchable;
+use Yii;
 
 /**
  * This is the model class for table "custom_pages_container_page".

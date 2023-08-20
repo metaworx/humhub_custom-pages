@@ -2,17 +2,15 @@
 
 namespace humhub\modules\custom_pages;
 
+use humhub\modules\content\components\ContentContainerActiveRecord;
 use humhub\modules\content\components\ContentContainerModule;
 use humhub\modules\content\models\Content;
-use humhub\modules\user\models\User;
-use Yii;
-use humhub\modules\custom_pages\models\Snippet;
 use humhub\modules\custom_pages\helpers\Url;
-use humhub\modules\custom_pages\models\Page;
 use humhub\modules\custom_pages\models\ContainerPage;
+use humhub\modules\custom_pages\models\Page;
+use humhub\modules\custom_pages\models\Snippet;
 use humhub\modules\space\models\Space;
-use humhub\modules\content\components\ContentContainerActiveRecord;
-use yii\base\Exception;
+use Yii;
 
 class Module extends ContentContainerModule
 {
@@ -58,19 +56,19 @@ class Module extends ContentContainerModule
     public function disable()
     {
         foreach (Page::find()->all() as $page) {
-            $page->delete();
+            $page->hardDelete();
         }
 
         foreach (ContainerPage::find()->all() as $page) {
-            $page->delete();
+            $page->hardDelete();
         }
-        
+
         foreach (models\Snippet::find()->all() as $page) {
-            $page->delete();
+            $page->hardDelete();
         }
-        
+
         foreach (models\ContainerSnippet::find()->all() as $page) {
-            $page->delete();
+            $page->hardDelete();
         }
 
         parent::disable();
@@ -109,11 +107,11 @@ class Module extends ContentContainerModule
         parent::disableContentContainer($container);
 
         foreach (ContainerPage::find()->contentContainer($container)->all() as $page) {
-            $page->delete();
+            $page->hardDelete();
         }
-        
+
         foreach (models\ContainerSnippet::find()->contentContainer($container)->all() as $page) {
-            $page->delete();
+            $page->hardDelete();
         }
     }
 

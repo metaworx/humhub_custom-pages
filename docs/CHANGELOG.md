@@ -1,6 +1,27 @@
 Changelog
 =========
 
+1.9.3 (June 13, 2023)
+---------------------
+- Enh #277: Template usage: display content container and state
+- Fix #284: Hide files of HTML pages in stream wall entry
+
+1.9.2 (May 17, 2023)
+--------------------
+- Fix #277: Delete not published linked content on delete template
+
+- 1.9.1 (May 1, 2023)
+-------------------
+- Fix #274: Hard delete records on disable module
+- Fix #265: Fix tests for core v1.14
+
+1.9.0 (March 28, 2023)
+-----------------------
+- Fix #261: Add list buttons in toolbar of RichText TinyMCE editor
+- Fix #263: Conflicts if a page in a content container has the same ID as a global page
+- Fix #270: Don't wrap page type 
+- Fix #271: Fix compatible `AssetVariable::offsetGet()` between different PHP versions
+
 1.8.9 (February 6, 2023)
 ------------------------
 - Fix #259: Rich Text in page editor broken
@@ -308,4 +329,3 @@ New defaults: php-pages/container_pages/, php-pages/container_snippets/, php-pag
 - Enh: #56 Use of select2 dropdown as icon chooser
 - Fix: #40 Image/File upload ajax error handling
 - Fix: HumHub 1.2.beta.3 support
-
